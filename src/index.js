@@ -39,22 +39,6 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
-	// 	let res = '';
-	// for (let i = 0; i < expr.length; i += 10) {
-	// 	let str = expr.slice(i, i + 10);
-	// 	let arr = [];
-	// 	for (let j = 0; j < 10; j += 2) {
-	// 		if (str === "**********") {
-	// 			arr.push(" ");
-	// 				break;
-	// 		}
-	// 		if (str[j] != 0) {
-	// 			arr.push(str.slice(j, j + 2) === "11" ? "-" : ".");
-	// 		} continue;
-	// 	}
-	// 	res += MORSE_TABLE[arr.join("")];
-	// }
-	// return res;
 	 let res = "";
 	 let array = [];
 	 for (let i = 0; i < expr.length; i += 10) {
