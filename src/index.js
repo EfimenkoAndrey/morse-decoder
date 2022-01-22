@@ -35,10 +35,48 @@ const MORSE_TABLE = {
     '---..':  '8',
     '----.':  '9',
     '-----':  '0',
+	 ' ': ' ',
 };
 
 function decode(expr) {
-    // write your solution here
+	// 	let res = '';
+	// for (let i = 0; i < expr.length; i += 10) {
+	// 	let str = expr.slice(i, i + 10);
+	// 	let arr = [];
+	// 	for (let j = 0; j < 10; j += 2) {
+	// 		if (str === "**********") {
+	// 			arr.push(" ");
+	// 				break;
+	// 		}
+	// 		if (str[j] != 0) {
+	// 			arr.push(str.slice(j, j + 2) === "11" ? "-" : ".");
+	// 		} continue;
+	// 	}
+	// 	res += MORSE_TABLE[arr.join("")];
+	// }
+	// return res;
+	 let res = "";
+	 let array = [];
+	 for (let i = 0; i < expr.length; i += 10) {
+		 if (expr.slice(i, i + 10) === "**********") {
+			 array.push(" ");
+		 } else array.push(expr.slice(i, i + 10));
+	 }
+	 for (let i in array) {
+		 let str = array[i];
+		 let arrayRes = [];
+			 for (let j = 0; j < str.length; j += 2) {
+				 if (str === " ") {
+					 arrayRes.push(" ");
+					 break;
+				 }
+				 if (str[j] != 0) {
+					 arrayRes.push(str.slice(j, j + 2) === "10" ? "." : "-");
+				 }
+			 }
+			 res += MORSE_TABLE[arrayRes.join("")];
+	 }
+	 return res;
 }
 
 module.exports = {
